@@ -11,18 +11,18 @@ interface ResultService {
     @GET("v2/top-headlines")
 
     suspend fun getBreakingNews(
-        @Query("country") countryCode: String = "tr",
-        @Query("page") pageNumber: Int = 1,
+        @Query("country") countryCode: String = "us",
+        @Query("page") pageNumber: Int = 5,
         @Query("apiKey") apiKey: String = API_KEY,
 
         ):NewsResponse
 
-    @GET("v2/everything")
-    suspend fun searchForNews(
-        @Query("country") searchQuery: String = "",
-        @Query("page") pageNumber: Int = 1,
-        @Query("apiKey") apiKey: String = API_KEY,
-
-        ):NewsResponse
+//    @GET("v2/everything")
+//    suspend fun searchForNews(
+//        @Query("country") searchQuery: String = "",
+//        @Query("page") pageNumber: Int = 1,
+//        @Query("apiKey") apiKey: String = API_KEY,
+//
+//        ):NewsResponse
 
 }

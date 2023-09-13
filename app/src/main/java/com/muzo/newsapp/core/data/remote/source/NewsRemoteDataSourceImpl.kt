@@ -6,15 +6,13 @@ import com.muzo.newsapp.core.data.remote.api.ResultService
 import javax.inject.Inject
 
 class NewsRemoteDataSourceImpl @Inject constructor(
-    private val resultService: ResultService):NewsRemoteDataSource
- {
-     override suspend fun result(): Result<NewsResponse> {
-         return kotlin.runCatching {
-             resultService.getBreakingNews("tr",1,"$API_KEY")
-         }
-     }
+    private val resultService: ResultService
+) : NewsRemoteDataSource {
+    override suspend fun result(): Result<NewsResponse> {
+        return kotlin.runCatching {
+            resultService.getBreakingNews("tr", 1, API_KEY)
+        }
+    }
 
-     override suspend fun everythingResult() {
-         TODO("Not yet implemented")
-     }
- }
+
+}
