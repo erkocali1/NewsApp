@@ -80,6 +80,9 @@ dependencies {
     //BottomBar
     implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 
+    //Coil
+    implementation 'io.coil-kt:coil:1.3.2'
+
 
 
 

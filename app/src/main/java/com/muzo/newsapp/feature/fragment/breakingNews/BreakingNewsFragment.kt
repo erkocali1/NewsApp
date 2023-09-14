@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.muzo.newsapp.core.data.model.Article
 import com.muzo.newsapp.databinding.FragmentBreakingNewsBinding
+import com.muzo.newsapp.feature.adapters.BreakingNewsAdapter
+import com.muzo.newsapp.feature.adapters.CategoryAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,6 +20,9 @@ import kotlinx.coroutines.launch
 class BreakingNewsFragment : Fragment() {
     private lateinit var binding: FragmentBreakingNewsBinding
     private val viewModel: BreakingNewsViewModel by viewModels()
+    private lateinit var newsAdapter: BreakingNewsAdapter
+    private lateinit var categoryAdapter: CategoryAdapter
+    private lateinit var list: List<Article>
 
 
     override fun onCreateView(
@@ -29,12 +36,43 @@ class BreakingNewsFragment : Fragment() {
         return binding.root
     }
 
+    private fun setupAdapter() {
+        newsAdapter = BreakingNewsAdapter(list)
+        binding.rvNews.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            adapter = newsAdapter // RecyclerView'a adapter'ı bağla
+
+            val categories = listOf("Business", "Entertainment", "General", "Health", "Science", "Sports", "Technology")
+            categoryAdapter=CategoryAdapter(categories)
+            binding.rvCategory.apply {
+          layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                adapter=categoryAdapter
+            }
+
+        }
+    }
+
+
     private fun observeData() {
         lifecycleScope.launch {
-            viewModel.uiState.collect()
+            viewModel.uiState.collect{uiState->
+                when{
+                    uiState.loading->{
+                    }
+                    uiState.newsList != null->{
+                        list=uiState.newsList.articles
+                        setupAdapter()
+                    }
+                    else->{
+
+                    }
+                }
+
+            }
 
 
         }
     }
+
 
 }

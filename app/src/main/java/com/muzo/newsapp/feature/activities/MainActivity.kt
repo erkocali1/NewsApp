@@ -22,17 +22,8 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        observeData()
+
         setupBottomBar()
-    }
-    private fun observeData() {
-        lifecycleScope.launch {
-            viewModel.uiState.collect{
-
-            }
-
-
-        }
     }
 
     private fun setupBottomBar(){

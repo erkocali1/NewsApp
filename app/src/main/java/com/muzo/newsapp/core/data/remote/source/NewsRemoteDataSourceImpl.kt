@@ -10,7 +10,7 @@ class NewsRemoteDataSourceImpl @Inject constructor(
 ) : NewsRemoteDataSource {
     override suspend fun result(): Result<NewsResponse> {
         return kotlin.runCatching {
-            resultService.getBreakingNews("tr", 1, API_KEY)
+            resultService.getBreakingNews("us", 1, API_KEY,"sports")
         }
     }
 
