@@ -76,4 +76,11 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.5.2'
     annotationProcessor "androidx.room:room-compiler:2.5.2"
     implementation "androidx.room:room-ktx:2.5.2"
+
+    //BottomBar
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
+
+
+
+
 }

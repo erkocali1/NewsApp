@@ -1,4 +1,4 @@
-package com.muzo.newsapp.feature.fragment.BreakingNews
+package com.muzo.newsapp.feature.fragment.breakingNews
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.muzo.newsapp.feature.fragment.BreakingNews
+package com.muzo.newsapp.feature.fragment.breakingNews
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
