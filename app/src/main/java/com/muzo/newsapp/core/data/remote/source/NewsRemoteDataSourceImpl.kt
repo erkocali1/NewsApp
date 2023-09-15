@@ -10,7 +10,13 @@ class NewsRemoteDataSourceImpl @Inject constructor(
 ) : NewsRemoteDataSource {
     override suspend fun result(): Result<NewsResponse> {
         return kotlin.runCatching {
-            resultService.getBreakingNews("us", 1, API_KEY,"sports")
+            resultService.getBreakingNews()
+        }
+    }
+
+    override suspend fun categoryResult(category: String): Result<NewsResponse> {
+        return kotlin.runCatching {
+            resultService.categoryForNews(category = category)
         }
     }
 

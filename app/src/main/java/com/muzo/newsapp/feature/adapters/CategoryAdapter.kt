@@ -1,15 +1,21 @@
 package com.muzo.newsapp.feature.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.muzo.newsapp.databinding.CategoryRowBinding
 
-class CategoryAdapter(private val list: List<String>):RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(private val list: List<String>,val onCategoryClickListener: (category: String) -> Unit):RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding :CategoryRowBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(category: String) {
+
             binding.buttonCategory.text = category
+
+            binding.root.setOnClickListener {
+                onCategoryClickListener(category)
+            }
         }
 
     }
@@ -25,6 +31,8 @@ class CategoryAdapter(private val list: List<String>):RecyclerView.Adapter<Categ
 
         val currentItem=list[position]
         holder.bind(currentItem)
+
+        onCategoryClickListener(currentItem)
 
     }
     override fun getItemCount(): Int {

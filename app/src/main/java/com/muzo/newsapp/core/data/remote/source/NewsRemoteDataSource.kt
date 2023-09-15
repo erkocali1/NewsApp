@@ -5,5 +5,6 @@ import com.muzo.newsapp.core.data.model.NewsResponse
 interface NewsRemoteDataSource {
 
     suspend fun result(): Result<NewsResponse>
+    suspend fun categoryResult(category:String):Result<NewsResponse>
 
 }

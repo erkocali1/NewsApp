@@ -12,18 +12,19 @@ interface ResultService {
 
     suspend fun getBreakingNews(
         @Query("country") countryCode: String = "us",
-        @Query("page") pageNumber: Int = 1,
+        @Query("page") pageNumber: Int = 2,
         @Query("apiKey") apiKey: String = API_KEY,
-        @Query("category") category: String =" sports",
+
 
         ):NewsResponse
 
-//    @GET("v2/everything")
-//    suspend fun searchForNews(
-//        @Query("country") searchQuery: String = "",
-//        @Query("page") pageNumber: Int = 1,
-//        @Query("apiKey") apiKey: String = API_KEY,
-//
-//        ):NewsResponse
+    @GET("v2/everything")
+    suspend fun categoryForNews(
+        @Query("country") searchQuery: String = "",
+        @Query("page") pageNumber: Int = 1,
+        @Query("apiKey") apiKey: String = API_KEY,
+        @Query("category") category: String,
+
+        ):NewsResponse
 
 }
