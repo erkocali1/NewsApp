@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class BreakingNewsViewModel @Inject constructor(
     private val newsUseCase: GetNewsUseCase,
-
+    private val categoryResultUseCase: CategoryResultUseCase
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<GetNewsState> = MutableStateFlow(GetNewsState())
@@ -50,6 +50,28 @@ class BreakingNewsViewModel @Inject constructor(
         }
 
     }
+
+    fun getCategoryNews(category:String){
+        viewModelScope.launch {
+            categoryResultUseCase(category).asReSource().onEach { result ->
+                when (result) {
+                    is Resource.Loading -> {
+                        _uiState.value = _uiState.value.copy(loading = true)
+                    }
+
+                    is Resource.Error -> {
+                        _uiState.value = _uiState.value.copy(loading = false)
+                    }
+
+                    is Resource.Success -> {
+                        _uiState.value =
+                            _uiState.value.copy(loading = false, categoryList = result.data)
+                    }
+                }
+            }.launchIn(this)
+        }
+    }
+
 
 }
 
