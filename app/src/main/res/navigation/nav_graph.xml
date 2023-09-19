@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_breakingNewsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
@@ -31,4 +34,9 @@
         android:name="com.muzo.newsapp.feature.fragment.searchNews.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.muzo.newsapp.feature.fragment.categoryFragment.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" />
 </navigation>

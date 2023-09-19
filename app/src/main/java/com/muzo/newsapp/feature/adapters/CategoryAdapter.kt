@@ -13,7 +13,7 @@ class CategoryAdapter(private val list: List<String>,val onCategoryClickListener
 
             binding.buttonCategory.text = category
 
-            binding.root.setOnClickListener {
+            binding.buttonCategory.setOnClickListener {
                 onCategoryClickListener(category)
             }
         }
@@ -32,7 +32,6 @@ class CategoryAdapter(private val list: List<String>,val onCategoryClickListener
         val currentItem=list[position]
         holder.bind(currentItem)
 
-        onCategoryClickListener(currentItem)
 
     }
     override fun getItemCount(): Int {

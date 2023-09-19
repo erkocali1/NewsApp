@@ -12,7 +12,7 @@ class CategoryResultUseCase @Inject constructor(private val categoryRemoteReposi
     operator fun invoke(category:String): Flow<NewsResponse>{
         return flow {
             val result=categoryRemoteRepository.categoryResult(category = category)
-            (result.getOrNull() ?: throw IllegalArgumentException("error message")).also {
+            (result.getOrNull() ?: throw IllegalArgumentException("error message aliiiiiiiii")).also {
                 emit(it)
             }
         }

@@ -42,4 +42,5 @@ class BreakingNewsAdapter(var list: List<Article>):RecyclerView.Adapter<Breaking
     override fun getItemCount(): Int {
         return list.size
     }
+
 }
