@@ -7,7 +7,7 @@ import coil.load
 import com.muzo.newsapp.core.data.model.Article
 import com.muzo.newsapp.databinding.ItemRowBinding
 
-class BreakingNewsAdapter(var list: List<Article>):RecyclerView.Adapter<BreakingNewsAdapter.ViewHolder>() {
+class BreakingNewsAdapter(var list: List<Article>,val onMusicClickListener: (item: Article) -> Unit):RecyclerView.Adapter<BreakingNewsAdapter.ViewHolder>() {
 
 
 
@@ -20,6 +20,10 @@ class BreakingNewsAdapter(var list: List<Article>):RecyclerView.Adapter<Breaking
                time.text=item.publishedAt
                val url=item.urlToImage
                IvNews.load(url)
+
+               root.setOnClickListener {
+                   onMusicClickListener(item)
+               }
 
            }
        }

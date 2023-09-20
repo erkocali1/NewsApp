@@ -1,10 +1,15 @@
 package com.muzo.newsapp.core.data.di
 
+import android.content.Context
+import androidx.room.Room
 import com.muzo.newsapp.core.constants.Constants.Companion.BASE_URL
+import com.muzo.newsapp.core.constants.Constants.Companion.DATABASE_NAME
+import com.muzo.newsapp.core.data.local.room.NewsDataBase
 import com.muzo.newsapp.core.data.remote.api.ResultService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,6 +54,15 @@ object AppModule {
     fun provideNewsAppService(retrofit: Retrofit):ResultService{
         return retrofit.create(ResultService::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideRunDao(db:NewsDataBase)=db.getNewsDao()
+
+    @Provides
+    @Singleton
+    fun provideNewsDataBase(@ApplicationContext app : Context)=
+        Room.databaseBuilder(app,NewsDataBase::class.java, DATABASE_NAME).build()
 
 
 
