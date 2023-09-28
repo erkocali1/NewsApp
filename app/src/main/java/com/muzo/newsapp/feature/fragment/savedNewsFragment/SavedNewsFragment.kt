@@ -20,9 +20,6 @@ class SavedNewsFragment : Fragment() {
         binding = FragmentSavedNewsBinding.inflate(layoutInflater, container, false)
 
 
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_savedNewsFragment_to_detailFragment)
-        }
 
         return binding.root
     }
