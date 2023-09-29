@@ -142,6 +142,7 @@ class BreakingNewsFragment : Fragment() {
             putString("urlToImage", item.urlToImage)
             putString("description", item.description)
             putString("url", item.url)
+            putInt("uid", item.id!!)
         }
 
         findNavController().navigate(R.id.action_breakingNewsFragment_to_detailFragment, bundle)

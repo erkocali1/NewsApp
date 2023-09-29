@@ -99,8 +99,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="20dp"
-        app:layout_anchor="@id/webView"
         app:layout_anchorGravity="bottom|end"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:src="@drawable/ic_save"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

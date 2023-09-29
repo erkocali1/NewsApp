@@ -6,12 +6,14 @@ import com.muzo.newsapp.core.common.Resource
 import com.muzo.newsapp.core.common.asReSource
 import com.muzo.newsapp.core.data.model.NewsResponse
 import com.muzo.newsapp.domain.GetNewsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class SavedNewsViewModel @Inject constructor(
     private val savedNewsUseCase: GetNewsUseCase,
 ) : ViewModel() {
