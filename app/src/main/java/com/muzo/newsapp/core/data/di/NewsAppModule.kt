@@ -1,6 +1,7 @@
 package com.muzo.newsapp.core.data.di
 
 import com.muzo.newsapp.core.data.local.repository.LocalNewsRepo
+import com.muzo.newsapp.core.data.local.repository.LocalNewsRepoImpl
 import com.muzo.newsapp.core.data.local.source.LocalNewsDataSource
 import com.muzo.newsapp.core.data.local.source.LocalNewsDataSourceImpl
 import com.muzo.newsapp.core.data.remote.repository.NewsRemoteRepository
@@ -26,17 +27,17 @@ interface NewsAppModule {
         newsRemoteRepositoryImpl: NewsRemoteRepositoryImpl
     ): NewsRemoteRepository
 
-
+    @Binds
+    fun bindLocalRepository(
+        newsLocalNewsRepoImpl: LocalNewsRepoImpl
+    ): LocalNewsRepo
 
     @Binds
     fun bindNewsLocalDataSource(
         sourceImpl: LocalNewsDataSourceImpl
     ): LocalNewsDataSource
 
-    @Binds
-    fun bindLocalRepository(
-        newsLocalNewsRepo: LocalNewsRepo
-    ): LocalNewsRepo
+
 
 
 

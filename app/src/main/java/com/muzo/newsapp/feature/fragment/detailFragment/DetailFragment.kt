@@ -14,8 +14,10 @@ import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.muzo.newsapp.core.data.model.Article
 import com.muzo.newsapp.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
     private val viewModel: DetailViewModel by viewModels()
@@ -26,6 +28,7 @@ class DetailFragment : Fragment() {
 
         binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
         getData()
+        heartClicked()
         return binding.root
     }
 
@@ -85,6 +88,10 @@ class DetailFragment : Fragment() {
     }
 
     private fun heartClicked(){
+
+        binding.fabButton.setOnClickListener {
+            saveNewsRoom()
+        }
 
     }
 

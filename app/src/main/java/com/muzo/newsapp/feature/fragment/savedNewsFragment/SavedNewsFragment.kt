@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.muzo.newsapp.R
 import com.muzo.newsapp.databinding.FragmentSavedNewsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class SavedNewsFragment : Fragment() {
     private lateinit var binding: FragmentSavedNewsBinding
 
