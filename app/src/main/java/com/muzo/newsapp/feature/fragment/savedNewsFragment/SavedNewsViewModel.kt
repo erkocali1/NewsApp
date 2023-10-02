@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muzo.newsapp.core.common.Resource
 import com.muzo.newsapp.core.common.asReSource
+import com.muzo.newsapp.core.data.model.Article
 import com.muzo.newsapp.core.data.model.NewsResponse
+import com.muzo.newsapp.domain.GetNewsFromRoom
 import com.muzo.newsapp.domain.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SavedNewsViewModel @Inject constructor(
-    private val savedNewsUseCase: GetNewsUseCase,
+    private val savedNewsUseCase:GetNewsFromRoom,
 ) : ViewModel() {
     private val _uiState: MutableStateFlow<GetLocalNewsState> =
         MutableStateFlow(GetLocalNewsState())
@@ -52,5 +54,5 @@ class SavedNewsViewModel @Inject constructor(
 
 data class GetLocalNewsState(
     val loading: Boolean = false,
-    val newsList: NewsResponse? = null,
+    val newsList: List<Article>? = null,
 )

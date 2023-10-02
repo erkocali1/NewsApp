@@ -99,10 +99,11 @@ class DetailFragment : Fragment() {
         val title = arguments?.getString("title")
         val url = arguments?.getString("url")
         val urlToImage = arguments?.getString("urlToImage")
+        val content = arguments?.getString("content")
 
         val data = Article(
             author = "",
-            content = "",
+            content = content!!,
             description = "",
             publishedAt = "",
             title = title!!,
