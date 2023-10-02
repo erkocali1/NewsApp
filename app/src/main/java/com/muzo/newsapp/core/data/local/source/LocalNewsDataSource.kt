@@ -10,5 +10,5 @@ interface LocalNewsDataSource {
 
     suspend fun insertNews(newsList:List<Article>)
 
-    suspend fun deleteNewsByUid(newsUid:Int)
+    suspend fun deleteNewsByUid(newsTittle:String)
 }

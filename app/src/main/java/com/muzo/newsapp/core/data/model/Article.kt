@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
 )
 data class Article(
 
-    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) var id: Int=0,
     @SerializedName("author") val author: String,
     @SerializedName("content") val content: String,
     @SerializedName("description") val description: String,

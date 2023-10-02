@@ -17,7 +17,7 @@ interface NewsDao {
     @Query("SELECT*FROM articles")
     fun getAllMusic(): Flow<List<Article>>
 
-    @Query("DELETE FROM articles WHERE id= :newsId")
-    suspend fun deleteNewsById(newsId:Int)
+    @Query("DELETE FROM articles WHERE title= :newsTittle")
+    suspend fun deleteNewsById(newsTittle:String)
 
 }

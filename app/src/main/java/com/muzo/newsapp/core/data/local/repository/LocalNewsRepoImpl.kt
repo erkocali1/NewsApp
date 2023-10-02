@@ -11,8 +11,8 @@ class LocalNewsRepoImpl @Inject constructor(private val newsDataSource: LocalNew
         return newsDataSource.insertNews(newsList)
     }
 
-    override suspend fun deleteNewsByUid(newsUid: Int) {
-        return newsDataSource.deleteNewsByUid(newsUid)
+    override suspend fun deleteNewsByUid(newsTittle: String) {
+        return newsDataSource.deleteNewsByUid(newsTittle)
     }
 
     override suspend fun getAllDataFromRoom(): Flow<List<Article>> {

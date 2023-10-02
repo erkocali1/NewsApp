@@ -9,6 +9,7 @@ import com.muzo.newsapp.core.data.model.Article
 import com.muzo.newsapp.domain.GetNewsFromRoom
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -43,7 +44,7 @@ class DetailViewModel @Inject constructor(
                             _uiState.value.copy(loading = false, newsLocalData = result.data)
                     }
                 }
-            }
+            }.launchIn(this)
 
         }
     }
@@ -53,12 +54,13 @@ class DetailViewModel @Inject constructor(
         localDataSource.insertNews(newsList)
     }
 
-    suspend fun deleteNews(newsId: Int) {
-        localDataSource.deleteNewsByUid(newsId)
+    suspend fun deleteNews(newsTittle: String) {
+        localDataSource.deleteNewsByUid(newsTittle)
     }
 
 }
 
 data class HomeUiState(
-    val loading: Boolean = false, val newsLocalData: List<Article>? = null
+    val loading: Boolean = false,
+    val newsLocalData: List<Article>? = null
 )
