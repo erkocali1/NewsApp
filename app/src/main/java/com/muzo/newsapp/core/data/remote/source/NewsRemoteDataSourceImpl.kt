@@ -20,5 +20,11 @@ class NewsRemoteDataSourceImpl @Inject constructor(
         }
     }
 
+    override suspend fun searchResult(search: String,page: Int): Result<NewsResponse> {
+        return kotlin.runCatching {
+            resultService.searchForNews(search,page)
+        }
+    }
+
 
 }

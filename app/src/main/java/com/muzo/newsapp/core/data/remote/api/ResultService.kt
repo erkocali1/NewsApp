@@ -23,4 +23,14 @@ interface ResultService {
         @Query("category") category: String = "",
     ): NewsResponse
 
+    @GET("v2/top-headlines")
+    suspend fun searchForNews(
+        @Query("q") searchQuery: String ,
+        @Query("page") pageNumber: Int = 1,
+        @Query("apiKey") apiKey: String = API_KEY,
+    ): NewsResponse
+
+
+
+
 }

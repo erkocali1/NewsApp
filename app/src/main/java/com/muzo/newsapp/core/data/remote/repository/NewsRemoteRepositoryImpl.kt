@@ -11,6 +11,13 @@ class NewsRemoteRepositoryImpl @Inject constructor(private val newsRemoteDataSou
     }
 
     override suspend fun categoryResult(category: String): Result<NewsResponse> {
-        return newsRemoteDataSource.categoryResult(category=category)
+        return newsRemoteDataSource.categoryResult(category = category)
+    }
+
+    override suspend fun searchResult(search: String, page: Int): Result<NewsResponse> {
+
+        return newsRemoteDataSource.searchResult(search, page)
+
+
     }
 }
