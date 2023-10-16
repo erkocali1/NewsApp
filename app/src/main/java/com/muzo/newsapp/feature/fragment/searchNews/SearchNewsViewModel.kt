@@ -1,6 +1,5 @@
 package com.muzo.newsapp.feature.fragment.searchNews
 
-import android.graphics.pdf.PdfDocument.Page
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muzo.newsapp.core.common.Resource
@@ -21,7 +20,7 @@ class SearchNewsViewModel @Inject constructor(private val searchNewsUseCase: Sea
     val _uiState: MutableStateFlow<GetSearchNewsState> = MutableStateFlow(GetSearchNewsState())
     val uiState = _uiState
 
-    private fun getSearchNews(search:String,page: Int) {
+     fun getSearchNews(search:String,page: Int) {
 
         viewModelScope.launch {
             searchNewsUseCase(search,page).asReSource().onEach { result ->

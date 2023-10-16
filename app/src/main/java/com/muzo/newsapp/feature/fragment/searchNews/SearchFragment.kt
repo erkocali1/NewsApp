@@ -42,6 +42,7 @@ class SearchFragment : Fragment() {
     private fun observeData(){
         var job: Job? = null
         binding.etName.addTextChangedListener{editable ->
+            val string=editable.toString()
             job?.cancel()
 
             job= MainScope().launch {
@@ -50,17 +51,18 @@ class SearchFragment : Fragment() {
                     if (editable.toString().isNotEmpty()){
 
                         lifecycleScope.launch {
+                            viewModel.getSearchNews(string,1)
                             viewModel.uiState.collect{uiState->
                                when{
                                    uiState.loading->{
-                                       binding.progressBar.visibility = View.VISIBLE
+                                       binding.progressBar.visibility = View.GONE
                                        binding.etName.visibility=View.GONE
                                        binding.rvNews.visibility=View.GONE
                                    }
                                    uiState.newsList !=null->{
-                                       binding.progressBar.visibility = View.VISIBLE
-                                       binding.etName.visibility=View.GONE
-                                       binding.rvNews.visibility=View.GONE
+                                       binding.progressBar.visibility = View.GONE
+                                       binding.etName.visibility=View.VISIBLE
+                                       binding.rvNews.visibility=View.VISIBLE
 
                                        list=uiState.newsList.articles
                                        setupAdapter()

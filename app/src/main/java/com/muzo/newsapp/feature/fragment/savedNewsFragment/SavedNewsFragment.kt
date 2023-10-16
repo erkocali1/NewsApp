@@ -36,7 +36,7 @@ class SavedNewsFragment : Fragment() {
     }
 
 
-    fun observeData() {
+    private fun observeData() {
 
         lifecycleScope.launch {
             viewModel.uiState.collect { uiState ->
@@ -52,7 +52,6 @@ class SavedNewsFragment : Fragment() {
 
                     uiState.newsList != null -> {
                         binding.rvNews.visibility = View.VISIBLE
-
                         binding.progressBar.visibility = View.GONE
 
                         list = uiState.newsList
@@ -63,13 +62,16 @@ class SavedNewsFragment : Fragment() {
                             binding.emptyPng.visibility = View.VISIBLE
                             binding.emptyTitle.visibility = View.VISIBLE
                         }
+
+                        else{
+                            binding.emptyPng.visibility = View.GONE
+                            binding.emptyTitle.visibility = View.GONE
+                        }
                         setupAdapter()
                     }
 
                     else->{
                         binding.rvNews.visibility = View.VISIBLE
-                        binding.emptyPng.visibility = View.VISIBLE
-                        binding.emptyTitle.visibility = View.VISIBLE
                         binding.progressBar.visibility = View.GONE
                         list = emptyList() // Boş bir liste oluştur
                         setupAdapter()
