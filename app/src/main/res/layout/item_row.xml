@@ -17,6 +17,7 @@
             android:layout_width="150sp"
             android:layout_height="180sp"
             android:src="@drawable/ic_save"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +28,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:text="hello There"
+            android:ellipsize="end"
+            android:text="hello There 1"
+            android:layout_marginTop="4sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +39,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:maxLines="11"
-            android:text="hello There"
+            android:text="hello There2"
+            android:layout_marginTop="4sp"
             app:layout_constraintEnd_toStartOf="@id/IvNews"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
@@ -48,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8sp"
             android:maxLines="1"
-            android:text="hello There"
+            android:text="hello There3"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/IvNews"

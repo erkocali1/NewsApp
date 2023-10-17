@@ -6,9 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface NewsPaginationRepository {
 
-
     fun getPaginationResult(
         pageSize:Int=1
     ): Flow<PagingData<Article>>
-
 }

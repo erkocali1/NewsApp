@@ -46,16 +46,16 @@ class SearchFragment : Fragment() {
             job?.cancel()
 
             job= MainScope().launch {
-                delay(5000L)
+                delay(2000L)
                 editable?.let {
                     if (editable.toString().isNotEmpty()){
 
                         lifecycleScope.launch {
-                            viewModel.getSearchNews(string,1)
+                            viewModel.getSearchNews(string,2)
                             viewModel.uiState.collect{uiState->
                                when{
                                    uiState.loading->{
-                                       binding.progressBar.visibility = View.GONE
+                                       binding.progressBar.visibility = View.VISIBLE
                                        binding.etName.visibility=View.GONE
                                        binding.rvNews.visibility=View.GONE
                                    }
@@ -65,6 +65,18 @@ class SearchFragment : Fragment() {
                                        binding.rvNews.visibility=View.VISIBLE
 
                                        list=uiState.newsList.articles
+                                       val size = list.size
+                                       if (size == 0) {
+                                           binding.emptyPng.visibility = View.VISIBLE
+                                           binding.emptyTitle.visibility = View.VISIBLE
+                                       }
+
+                                       else{
+                                           binding.emptyPng.visibility = View.GONE
+                                           binding.emptyTitle.visibility = View.GONE
+                                       }
+
+
                                        setupAdapter()
                                    }
                                }
