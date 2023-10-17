@@ -4,6 +4,8 @@ import com.muzo.newsapp.core.data.local.repository.LocalNewsRepo
 import com.muzo.newsapp.core.data.local.repository.LocalNewsRepoImpl
 import com.muzo.newsapp.core.data.local.source.LocalNewsDataSource
 import com.muzo.newsapp.core.data.local.source.LocalNewsDataSourceImpl
+import com.muzo.newsapp.core.data.remote.pagination.NewsPaginationRepository
+import com.muzo.newsapp.core.data.remote.pagination.NewsPaginationRepositoryImpl
 import com.muzo.newsapp.core.data.remote.repository.NewsRemoteRepository
 import com.muzo.newsapp.core.data.remote.repository.NewsRemoteRepositoryImpl
 import com.muzo.newsapp.core.data.remote.source.NewsRemoteDataSource
@@ -36,6 +38,12 @@ interface NewsAppModule {
     fun bindNewsLocalDataSource(
         sourceImpl: LocalNewsDataSourceImpl
     ): LocalNewsDataSource
+
+
+    @Binds
+    fun bindPaginationRepository(
+        pagingRepositoryImpl: NewsPaginationRepositoryImpl
+    ): NewsPaginationRepository
 
 
 

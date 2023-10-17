@@ -8,6 +8,14 @@ import retrofit2.http.Query
 
 interface ResultService {
 
+
+    @GET("v2/top-headlines")
+    suspend fun pagination(
+        @Query("country") countryCode: String = "us",
+        @Query("page") pageNumber: Int ,
+        @Query("apiKey") apiKey: String = API_KEY,
+    ): NewsResponse
+
     @GET("v2/top-headlines")
     suspend fun getBreakingNews(
         @Query("country") countryCode: String = "us",

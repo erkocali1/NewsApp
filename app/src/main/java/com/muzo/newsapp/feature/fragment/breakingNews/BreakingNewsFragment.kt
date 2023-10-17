@@ -10,13 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muzo.newsapp.R
 import com.muzo.newsapp.core.data.model.Article
 import com.muzo.newsapp.databinding.FragmentBreakingNewsBinding
 import com.muzo.newsapp.feature.adapters.BreakingNewsAdapter
 import com.muzo.newsapp.feature.adapters.CategoryAdapter
+import com.muzo.newsapp.feature.adapters.PaginationAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -26,6 +29,8 @@ class BreakingNewsFragment : Fragment() {
     private lateinit var newsAdapter: BreakingNewsAdapter
     private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var list: List<Article>
+    private lateinit var paginationAdapter: PaginationAdapter
+
 
 
     override fun onCreateView(
@@ -71,29 +76,31 @@ class BreakingNewsFragment : Fragment() {
 
     private fun observeData() {
 
+        paginationAdapter = PaginationAdapter { item ->
 
-        lifecycleScope.launch {
-            viewModel.uiState.collect { uiState ->
-                when {
-                    uiState.loading -> {
-                        binding.rvCategory.visibility = View.GONE
-                        binding.rvNews.visibility = View.GONE
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
+            navigateToDetailFragment(item)
 
-                    uiState.newsList != null -> {
-                        binding.rvCategory.visibility = View.VISIBLE
-                        binding.rvNews.visibility = View.VISIBLE
-                        binding.progressBar.visibility = View.GONE
-                        list = uiState.newsList.articles
-                        setupAdapter()
-                    }
+        }
+        binding.rvNews.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = paginationAdapter
 
-                    else -> {
-
-                    }
+            paginationAdapter.addLoadStateListener { loadState ->
+                if (loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading) {
+                    binding.progressBar.visibility = View.VISIBLE
+                } else {
+                    binding.progressBar.visibility = View.GONE
                 }
             }
+
+        }
+
+        lifecycleScope.launch {
+            viewModel.getPaginationResult()
+                .collectLatest { pagingData ->
+                    paginationAdapter.submitData(pagingData)
+                }
+
         }
     }
 

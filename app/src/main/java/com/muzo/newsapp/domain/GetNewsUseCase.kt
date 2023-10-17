@@ -18,4 +18,5 @@ class GetNewsUseCase @Inject constructor(private val remoteRepository: NewsRemot
         }
     }
 
+
 }
