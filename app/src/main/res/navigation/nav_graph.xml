@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/breakingNewsFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/breakingNewsFragment"
@@ -54,4 +54,24 @@
         android:name="com.muzo.newsapp.feature.fragment.detailFragment.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.muzo.newsapp.feature.fragment.loginFragment.LoginFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_breakingNewsFragment"
+            app:destination="@id/breakingNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.muzo.newsapp.feature.fragment.registerFragment.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_breakingNewsFragment"
+            app:destination="@id/breakingNewsFragment" />
+    </fragment>
 </navigation>

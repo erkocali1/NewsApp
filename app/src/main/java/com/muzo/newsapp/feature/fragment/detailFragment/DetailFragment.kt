@@ -139,7 +139,7 @@ class DetailFragment : Fragment() {
                 )
                 binding.fabButton.tag = filledHeartDrawableName
 
-                toastMessage("This song added fav")
+                toastMessage("This news added saved")
                 saveNewsRoom()
 
 
@@ -152,7 +152,7 @@ class DetailFragment : Fragment() {
                 )
                 binding.fabButton.tag = emptyHeartDrawableName
                 distractSave()
-                toastMessage("This song distract fav")
+                toastMessage("This news distract saved")
             }
         }
 

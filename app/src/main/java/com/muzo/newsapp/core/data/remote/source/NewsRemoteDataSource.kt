@@ -9,4 +9,5 @@ interface NewsRemoteDataSource {
 
     suspend fun  searchResult(search:String,page:Int):Result<NewsResponse>
 
+
 }

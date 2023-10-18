@@ -2,6 +2,8 @@ package com.muzo.newsapp.core.data.di
 
 import android.content.Context
 import androidx.room.Room
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.muzo.newsapp.core.constants.Constants.Companion.BASE_URL
 import com.muzo.newsapp.core.constants.Constants.Companion.DATABASE_NAME
 import com.muzo.newsapp.core.data.local.room.NewsDataBase
@@ -63,6 +65,12 @@ object AppModule {
     @Singleton
     fun provideNewsDataBase(@ApplicationContext app : Context)=
         Room.databaseBuilder(app,NewsDataBase::class.java, DATABASE_NAME).build()
+
+    @Provides
+    @Singleton
+    fun providesFirebaseApp(): FirebaseAuth {
+        return FirebaseAuth .getInstance()
+    }
 
 
 
