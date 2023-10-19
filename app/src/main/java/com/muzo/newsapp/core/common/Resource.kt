@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 
 sealed interface Resource<out T> {
-    data class Success<out T>(val data :T): Resource<T>
+    data class Success<out T>(val data :T): Resource <T>
     data class Error(val exception: Throwable?=null): Resource<Nothing>
     object Loading: Resource<Nothing>
 }

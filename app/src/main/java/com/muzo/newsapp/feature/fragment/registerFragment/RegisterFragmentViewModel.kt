@@ -1,4 +1,4 @@
-package com.muzo.newsapp.feature.fragment.loginFragment
+package com.muzo.newsapp.feature.fragment.registerFragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,30 +13,26 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class LoginFragmentViewModel @Inject constructor(private val repository: AuthRepository) :
+class RegisterFragmentViewModel @Inject constructor(private val repository: AuthRepository) :
     ViewModel() {
 
-    private val _loginState = MutableStateFlow<Resource<FirebaseUser>?>(null)
-    val loginFlow: StateFlow<Resource<FirebaseUser>?> = _loginState
+    private val _signUpState = MutableStateFlow<Resource<FirebaseUser>?>(null)
+    val signUpFlow: StateFlow<Resource<FirebaseUser>?> = _signUpState
 
     val currentUser: FirebaseUser?
         get() = repository.currentUser
 
     init {
         if (repository.currentUser != null) {
-            _loginState.value = Resource.Success(repository.currentUser!!)
+            _signUpState.value = Resource.Success(repository.currentUser!!)
         }
     }
 
 
-    fun login(email: String, password: String) = viewModelScope.launch {
-        _loginState.value = Resource.Loading
-        val result = repository.login(email, password)
-        _loginState.value = result
-    }
-
-    fun logOut() {
-        repository.logout()
+    fun signUp(name: String, email: String, password: String) = viewModelScope.launch {
+        _signUpState.value = Resource.Loading
+        val result = repository.register(name, email, password)
+        _signUpState.value = result
     }
 
 

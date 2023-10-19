@@ -1,20 +1,39 @@
 package com.muzo.newsapp.core.data.remote.repository.auth
 
-import com.muzo.newsapp.core.data.remote.source.auth.AuthDataSource
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.muzo.newsapp.core.common.Resource
+import com.muzo.newsapp.core.common.await
 import javax.inject.Inject
 
-class AuthRepositoryImp @Inject constructor(private val dataSource: AuthDataSource) :
+class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth) :
     AuthRepository {
+    override val currentUser: FirebaseUser?
+        get() = firebaseAuth.currentUser
 
-    override suspend fun register(email: String, password: String) {
-        dataSource.register(email, password)
+    override suspend fun register(name:String,email: String, password: String): Resource<FirebaseUser> {
+        return  try {
+            val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+            result?.user?.updateProfile(UserProfileChangeRequest.Builder().build())?.await()
+            Resource.Success(result.user!!)
+        } catch (e: Exception) {
+            Resource.Error(e)
+        }
+
     }
 
-    override suspend fun login(email: String, password: String) {
-        dataSource.login(email, password)
+    override suspend fun login(email: String, password: String): Resource<FirebaseUser> {
+      return  try {
+            val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
+            Resource.Success(result.user!!)
+        } catch (e: Exception) {
+            Resource.Error(e)
+        }
+
     }
 
-    override suspend fun logout() {
-        dataSource.logout()
+    override  fun logout() {
+        firebaseAuth.signOut()
     }
 }

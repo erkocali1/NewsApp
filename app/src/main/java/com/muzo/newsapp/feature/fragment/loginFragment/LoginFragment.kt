@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.muzo.newsapp.R
+import com.muzo.newsapp.core.common.Resource
 import com.muzo.newsapp.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,34 +26,54 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
-
-        binding.loginButton.setOnClickListener {
-            val email = binding.etMail.text.toString()
-            val password = binding.etPassword.text.toString()
-
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                login(email, password)
-            }
-        }
-
+        navigateToRegister()
+        observeData()
+        clickEvent()
         return binding.root
 
     }
 
-    private fun login(email: String, password: String) {
+    private fun observeData() {
         lifecycleScope.launch {
-            viewModel.login(email, password, {
-                // İşlem başarılı olduğunda yapılacaklar
-                navigateToAnotherFragment()
-            }, { e ->
-                // Hata durumunda yapılacaklar
-                // Hata mesajını gösterebilirsiniz
-            })
+            viewModel.loginFlow.collect {
+                when (it) {
+                    is Resource.Error -> toastMessage(it.exception?.message!!)
+                    is Resource.Success -> navigateFragment()
+                    Resource.Loading -> {
+                        binding.textView.visibility = View.VISIBLE
+                    }
+
+                    else -> {}
+                }
+            }
         }
     }
 
-    private fun navigateToAnotherFragment(){
+    private fun clickEvent() {
+        binding.loginButton.setOnClickListener {
+            val email = binding.etMail.text.toString()
+            val password = binding.etPassword.text.toString()
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                viewModel.login(email, password)
+            }
+        }
+    }
+    private fun navigateFragment() {
         findNavController().navigate(R.id.action_loginFragment_to_breakingNewsFragment)
     }
+
+    private fun toastMessage(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun navigateToRegister() {
+        binding.textView.setOnClickListener {
+
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
+
+    }
+
 
 }

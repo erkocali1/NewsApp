@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".feature.fragment.loginFragment.LoginFragment">
 
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/log" />
-
+        android:src="@drawable/log"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilName"
@@ -87,7 +91,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/signUpButton"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16sp"

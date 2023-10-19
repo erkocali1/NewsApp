@@ -2,7 +2,6 @@ package com.muzo.newsapp.core.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.muzo.newsapp.core.constants.Constants.Companion.BASE_URL
 import com.muzo.newsapp.core.constants.Constants.Companion.DATABASE_NAME
@@ -17,7 +16,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -71,6 +69,8 @@ object AppModule {
     fun providesFirebaseApp(): FirebaseAuth {
         return FirebaseAuth .getInstance()
     }
+
+
 
 
 

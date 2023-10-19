@@ -9,11 +9,10 @@ import com.muzo.newsapp.core.data.remote.pagination.NewsPaginationRepositoryImpl
 import com.muzo.newsapp.core.data.remote.repository.NewsRemoteRepository
 import com.muzo.newsapp.core.data.remote.repository.NewsRemoteRepositoryImpl
 import com.muzo.newsapp.core.data.remote.repository.auth.AuthRepository
-import com.muzo.newsapp.core.data.remote.repository.auth.AuthRepositoryImp
+import com.muzo.newsapp.core.data.remote.repository.auth.AuthRepositoryImpl
 import com.muzo.newsapp.core.data.remote.source.NewsRemoteDataSource
 import com.muzo.newsapp.core.data.remote.source.NewsRemoteDataSourceImpl
-import com.muzo.newsapp.core.data.remote.source.auth.AuthDataSource
-import com.muzo.newsapp.core.data.remote.source.auth.AuthDataSourceImpl
+
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -49,21 +48,11 @@ interface NewsAppModule {
         pagingRepositoryImpl: NewsPaginationRepositoryImpl
     ): NewsPaginationRepository
 
-    @Binds
-    fun bindAuthDataSource(
-        authDataSourceImpl: AuthDataSourceImpl
-    ): AuthDataSource
 
     @Binds
     fun bindAuthRepository(
-        authRepositoryImpl: AuthRepositoryImp
+        authRepositoryImpl: AuthRepositoryImpl
     ): AuthRepository
-
-
-
-
-
-
 
 
 }

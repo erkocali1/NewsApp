@@ -1,5 +1,6 @@
 package com.muzo.newsapp.core.data.local.source
 
+import com.google.firebase.auth.FirebaseUser
 import com.muzo.newsapp.core.data.model.Article
 import kotlinx.coroutines.flow.Flow
 
@@ -11,4 +12,6 @@ interface LocalNewsDataSource {
     suspend fun insertNews(newsList:List<Article>)
 
     suspend fun deleteNewsByUid(newsTittle:String)
+
+
 }
