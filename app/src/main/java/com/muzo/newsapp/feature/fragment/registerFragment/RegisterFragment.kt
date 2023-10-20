@@ -52,12 +52,13 @@ class RegisterFragment : Fragment() {
 
     private fun clickEvent() {
         binding.signUpButton.setOnClickListener {
-            val email = binding.etName.text.toString()
+            val name=binding.etName.text.toString()
+            val email = binding.etMail.text.toString()
             val password = binding.etPassword.text.toString()
-            val confirmPassword = binding.etPassword.text.toString()
+            val confirmPassword = binding.etconfirmPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
                 if (confirmPassword == password) {
-                    viewModel.signUp(email,password,confirmPassword)
+                    viewModel.signUp(name,email,password)
                 }else{
                     toastMessage("Password does not match")
                 }

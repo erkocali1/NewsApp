@@ -10,4 +10,6 @@ interface LocalNewsRepo {
     suspend fun deleteNewsByUid(newsTittle:String)
 
     suspend fun getAllDataFromRoom(): Flow<List<Article>>
+
+    suspend fun deleteAllSavedNews()
 }

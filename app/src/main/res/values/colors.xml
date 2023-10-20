@@ -9,4 +9,5 @@
     <color name="card">#E3E4EB</color>
     <color name="button">#E91E63</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="logButton">#383e42</color>
 </resources>

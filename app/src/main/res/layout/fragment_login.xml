@@ -10,17 +10,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/log" />
+        android:src="@drawable/loginiv" />
 
+    <TextView
+        android:id="@+id/loginConst"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="36sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="310dp"/>
+
+    <TextView
+        android:id="@+id/loginConstTwo"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign to continue"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/loginConst"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/loginConstTwo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etMail"
@@ -28,9 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@color/login"
+            android:background="@drawable/edittext_background"
             android:ems="10"
-            android:hint="UserName"
+            android:hint="Type Mail"
             android:inputType="textPersonName"
             android:textColor="@color/black" />
 
@@ -42,7 +64,7 @@
         android:id="@+id/tilPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
+        android:layout_marginTop="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilName">
@@ -53,9 +75,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@color/login"
+            android:background="@drawable/edittext_background"
             android:ems="10"
-            android:hint="Password"
+            android:hint="Type Password"
             android:inputType="textPersonName"
             android:textColor="@color/black" />
 
@@ -66,24 +88,13 @@
         android:id="@+id/loginButton"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
+        android:layout_marginTop="26sp"
         android:text="Log In"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dont Have an Account?"
-        style="@style/title"
-        android:textSize="12dp"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        android:layout_marginTop="16sp"
+        android:backgroundTint="@color/logButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

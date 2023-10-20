@@ -13,5 +13,7 @@ interface LocalNewsDataSource {
 
     suspend fun deleteNewsByUid(newsTittle:String)
 
+    suspend fun deleteAllSavedNews()
+
 
 }

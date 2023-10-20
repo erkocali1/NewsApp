@@ -19,5 +19,9 @@ class LocalNewsDataSourceImpl @Inject constructor(private val newsDao: NewsDao) 
         return newsDao.deleteNewsById(newsTittle)
     }
 
+    override suspend fun deleteAllSavedNews() {
+        return newsDao.deleteAllSavedNews()
+    }
+
 
 }

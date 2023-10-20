@@ -26,7 +26,6 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
-        navigateToRegister()
         observeData()
         clickEvent()
         return binding.root
@@ -40,7 +39,6 @@ class LoginFragment : Fragment() {
                     is Resource.Error -> toastMessage(it.exception?.message!!)
                     is Resource.Success -> navigateFragment()
                     Resource.Loading -> {
-                        binding.textView.visibility = View.VISIBLE
                     }
 
                     else -> {}
@@ -55,6 +53,8 @@ class LoginFragment : Fragment() {
             val password = binding.etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.login(email, password)
+            }else{
+                toastMessage("Name and password cannot be empty")
             }
         }
     }
@@ -65,15 +65,5 @@ class LoginFragment : Fragment() {
     private fun toastMessage(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
-
-    private fun navigateToRegister() {
-        binding.textView.setOnClickListener {
-
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
-
-
-    }
-
 
 }

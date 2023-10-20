@@ -11,20 +11,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/log"
+        android:src="@drawable/registeriv"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilName"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/loginConst"
+        style="@style/title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370sp"
+        android:layout_marginTop="150dp"
+        android:text="Sign Up"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginConstTwo"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign to continue"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginConst" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginConstTwo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etName"
@@ -32,24 +55,47 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@color/login"
+            android:background="@drawable/edittext_background"
             android:ems="10"
             android:hint="UserName"
             android:inputType="textPersonName"
             android:textColor="@color/black" />
 
-
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword"
+        android:id="@+id/mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
+        android:layout_marginTop="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilName">
+        app:layout_constraintTop_toBottomOf="@id/Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+
+            android:hint="Mail"
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mail">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
@@ -57,12 +103,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@color/login"
+            android:background="@drawable/edittext_background"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName"
             android:textColor="@color/black" />
-
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,38 +115,37 @@
         android:id="@+id/confirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
+        android:layout_marginTop="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword">
+        app:layout_constraintTop_toBottomOf="@id/password">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirmEtPassword"
+            android:id="@+id/etconfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@color/login"
+            android:background="@drawable/edittext_background"
             android:ems="10"
             android:hint="Confirm Password"
             android:inputType="textPersonName"
             android:textColor="@color/black" />
 
-
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
+        android:layout_marginTop="24sp"
+        android:backgroundTint="@color/logButton"
         android:text="Sıgn Up"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmPassword" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

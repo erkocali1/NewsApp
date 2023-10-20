@@ -42,6 +42,7 @@ class BreakingNewsFragment : Fragment() {
 
         reSetupAdapter()
         observeData()
+        navigateToUserFragment()
 
         return binding.root
     }
@@ -153,6 +154,12 @@ class BreakingNewsFragment : Fragment() {
 
         findNavController().navigate(R.id.action_breakingNewsFragment_to_detailFragment, bundle)
 
+    }
+
+    private fun navigateToUserFragment(){
+        binding.fabButton.setOnClickListener {
+            findNavController().navigate(R.id.action_breakingNewsFragment_to_userFragment)
+        }
     }
 
 }
