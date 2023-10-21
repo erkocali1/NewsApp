@@ -2,6 +2,7 @@ package com.muzo.newsapp.feature.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 
@@ -30,6 +31,17 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationBar=binding.bottomNavBar
         val navController=findNavController(R.id.fragmentContainerView  )
 
+        navController.addOnDestinationChangedListener{_, destination, _ ->
+
+            when(destination.id){
+                R.id.breakingNewsFragment,R.id.detailFragment,R.id.savedNewsFragment,R.id.searchFragment ->
+
+                    binding.bottomNavBar.visibility= View.VISIBLE
+                else ->binding.bottomNavBar.visibility=View.GONE
+            }
+        }
+
+
         bottomNavigationBar.setOnItemSelectedListener { itemId ->
             when (itemId) {
                 R.id.savedNewsFragment -> {
@@ -48,4 +60,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 }
