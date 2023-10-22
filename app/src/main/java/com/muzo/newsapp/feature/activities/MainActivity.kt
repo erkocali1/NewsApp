@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 
 import androidx.navigation.findNavController
@@ -20,10 +21,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen().apply {
+            splashWait()
+        }
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         setupBottomBar()
     }
 
@@ -60,6 +62,15 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    fun splashWait() {
+        try {
+            Thread.sleep(2500) //
+        } catch (e: InterruptedException) {
+
+        }
+    }
+
 
 
 }
