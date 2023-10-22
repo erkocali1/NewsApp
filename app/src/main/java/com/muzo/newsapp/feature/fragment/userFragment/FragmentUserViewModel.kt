@@ -17,11 +17,11 @@ class FragmentUserViewModel @Inject constructor(
     private val localNewsDataSource: LocalNewsDataSource
 ) : ViewModel() {
 
-    private val _loginState = MutableStateFlow<Resource<FirebaseUser>?>(null)
-    val loginFlow: StateFlow<Resource<FirebaseUser>?> = _loginState
+
 
     val currentUser: FirebaseUser?
         get() = repository.currentUser
+
 
 
     fun logOut() {

@@ -103,5 +103,8 @@
         <action
             android:id="@+id/action_infoFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_breakingNewsFragment"
+            app:destination="@id/breakingNewsFragment" />
     </fragment>
 </navigation>

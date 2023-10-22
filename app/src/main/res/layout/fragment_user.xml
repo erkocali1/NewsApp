@@ -59,15 +59,59 @@
         app:layout_constraintStart_toEndOf="@id/constUserName"
         app:layout_constraintTop_toTopOf="@id/cvUser" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvUserMail"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvUser">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_user" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/constMailName"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="Mail:"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@id/cvUserMail"
+        app:layout_constraintTop_toTopOf="@id/cvUserMail" />
+
+    <TextView
+        android:id="@+id/userMail"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="UserName:"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@id/constMailName"
+        app:layout_constraintTop_toTopOf="@id/cvUserMail" />
+
+
+
+
     <Button
         android:id="@+id/logOutButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:text="Log Out"
+        android:backgroundTint="@color/logButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvUser" />
+        app:layout_constraintTop_toBottomOf="@id/userMail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

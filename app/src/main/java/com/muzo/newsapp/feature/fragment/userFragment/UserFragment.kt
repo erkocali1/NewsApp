@@ -1,7 +1,5 @@
 package com.muzo.newsapp.feature.fragment.userFragment
 
-import dagger.hilt.android.AndroidEntryPoint
-
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +12,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.muzo.newsapp.R
 import com.muzo.newsapp.databinding.FragmentUserBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 @AndroidEntryPoint
 class UserFragment : Fragment() {
     private lateinit var binding: FragmentUserBinding
@@ -30,6 +30,7 @@ class UserFragment : Fragment() {
 
 
         clickListener()
+        infoUserEvent()
         return binding.root
     }
 
@@ -59,9 +60,22 @@ class UserFragment : Fragment() {
 
             }.show()
     }
+
     private fun navigateToLoginFragment() {
 
         findNavController().navigate(R.id.action_userFragment_to_infoFragment)
+
+    }
+
+    private fun infoUserEvent() {
+
+        lifecycleScope.launch {
+            val userName = viewModel?.currentUser?.displayName
+            binding.userName.text = userName
+
+            val userMail = viewModel?.currentUser?.email
+            binding.userMail.text = userMail
+        }
 
     }
 

@@ -15,7 +15,7 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     override suspend fun register(name:String,email: String, password: String): Resource<FirebaseUser> {
         return  try {
             val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
-            result?.user?.updateProfile(UserProfileChangeRequest.Builder().build())?.await()
+            result?.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())?.await()
             Resource.Success(result.user!!)
         } catch (e: Exception) {
             Resource.Error(e)
