@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationBar.setOnItemSelectedListener { itemId ->
             when (itemId) {
                 R.id.savedNewsFragment -> {
-                    // Ana Sayfa seçildiğinde yapılacak işlemler
+                    // Ana Sayfa seçildiğinde yapılacak işlemle
                     navController.navigate(R.id.savedNewsFragment)
                 }
                 R.id.searchFragment -> {
