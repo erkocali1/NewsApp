@@ -39,9 +39,9 @@ Haberleri bulmak ve takip etmek artık daha kolay. Bu uygulama ile güncel olayl
   <h2>📝Dagger Hilt Nedir </h2>
 Dagger Hilt, bağımlılık enjeksiyonu çerçevesi olarak kullanılan bir Android Jetpack kütüphanesidir. Dagger Hilt, Android uygulamalarındaki bağımlılıkları (örneğin, veritabanı, ağ isteği, servisler) yönetmek ve enjekte etmek için kullanılır. Bu sayede uygulamalar daha sürdürülebilir, test edilebilir ve bakımı daha kolay hale gelir.
 
-Yukarıda yaptığım uygulamamda Dagger Hilt'in görevi, bağımlılıkları enjekte etmek ve yönetmek için kullanılmasıdır. Özellikle Dependency Injection (Bağımlılık Enjeksiyonu) konseptini uygularken Dagger Hilt kullanılır. Bu, iş mantığını ve veri kaynağını ayırmak, bileşenler ve modüller aracılığıyla bağımlılıkları bildirmek ve bunları kullanıcı etkileşimiyle bağlamak için kullanılır.
+Yukarıda yaptığım uygulamamda Dagger Hilt'in görevi, bağımlılıkları enjekte etmek ve yönetmek için kullanılmıştır. Özellikle Dependency Injection (Bağımlılık Enjeksiyonu) konseptini uygularken Dagger Hilt kullanılır. Bu, iş mantığını ve veri kaynağını ayırmak, bileşenler ve modüller aracılığıyla bağımlılıkları bildirmek ve bunları kullanıcı etkileşimiyle bağlamak için kullanılır.
 
-Kısacası, Dagger Hilt, bağımlılık enjeksiyonu ile ilgili Android uygulamalarınızda kullanabileceğiniz güçlü bir araçtır ve yukarıda açıkladığm haber uygulamamızdaki görevi, uygulamanızın temel bağımlılıklarını yönetmek ve enjekte etmek için kullanılmasıdır.
+Kısacası, Dagger Hilt, bağımlılık enjeksiyonu ile ilgili Android uygulamalarınızda kullanabileceğiniz güçlü bir araçtır ve yukarıda açıkladığm haber uygulamamızdaki görevi, uygulamamızın temel bağımlılıklarını yönetmek ve enjekte etmek için kullanılmasıdır.
 ![Ekran görüntüsü 2023-10-23 140255](https://github.com/erkocali1/NewsApp/assets/116030125/2e02418b-2d10-4964-835f-c4492fc77758)
 
   
