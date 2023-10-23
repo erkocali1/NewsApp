@@ -45,7 +45,11 @@ Kısacası, Dagger Hilt, bağımlılık enjeksiyonu ile ilgili Android uygulamal
 
 
 ## 📱 Video
-https://github.com/erkocali1/NewsApp/assets/116030125/cdf45ec7-389a-4fea-bb2e-a29d77becce6
+
+
+
+https://github.com/erkocali1/NewsApp/assets/116030125/1711c0de-3a94-4e3c-bef1-8ce233a43f70
+
 
 
 ## 📝: Dependency
