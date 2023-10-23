@@ -42,10 +42,9 @@ Dagger Hilt, bağımlılık enjeksiyonu çerçevesi olarak kullanılan bir Andro
 Yukarıda yaptığım uygulamamda Dagger Hilt'in görevi, bağımlılıkları enjekte etmek ve yönetmek için kullanılmıştır. Özellikle Dependency Injection (Bağımlılık Enjeksiyonu) konseptini uygularken Dagger Hilt kullanılır. Bu, iş mantığını ve veri kaynağını ayırmak, bileşenler ve modüller aracılığıyla bağımlılıkları bildirmek ve bunları kullanıcı etkileşimiyle bağlamak için kullanılır.
 
 Kısacası, Dagger Hilt, bağımlılık enjeksiyonu ile ilgili Android uygulamalarınızda kullanabileceğiniz güçlü bir araçtır ve yukarıda açıkladığm haber uygulamamızdaki görevi, uygulamamızın temel bağımlılıklarını yönetmek ve enjekte etmek için kullanılmasıdır.
-![Ekran görüntüsü 2023-10-23 140255](https://github.com/erkocali1/NewsApp/assets/116030125/2e02418b-2d10-4964-835f-c4492fc77758)
 
 
-
+## 📱 Video
 https://github.com/erkocali1/NewsApp/assets/116030125/cdf45ec7-389a-4fea-bb2e-a29d77becce6
 
 
