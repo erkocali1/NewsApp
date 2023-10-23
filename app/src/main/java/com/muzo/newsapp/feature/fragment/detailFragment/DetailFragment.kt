@@ -40,8 +40,6 @@ class DetailFragment : Fragment() {
         val url = arguments?.getString("url")
         val urlToImage = arguments?.getString("urlToImage")
 
-        binding.ivNews.load(urlToImage)
-        binding.appId.text = title
 
         val webView = binding.webView
         val progressBar = binding.progressBar
@@ -70,8 +68,6 @@ class DetailFragment : Fragment() {
                     uiState.loading -> {
 
                         binding.webView.visibility=View.GONE
-                        binding.appId.visibility=View.GONE
-                        binding.ivNews.visibility=View.GONE
                         binding.progressBar.visibility=View.VISIBLE
 
                     }
@@ -81,8 +77,6 @@ class DetailFragment : Fragment() {
                         isFavCheck()
                         getData()
                         binding.webView.visibility=View.VISIBLE
-                        binding.appId.visibility=View.VISIBLE
-                        binding.ivNews.visibility=View.VISIBLE
                         binding.progressBar.visibility=View.GONE
                     }
 
